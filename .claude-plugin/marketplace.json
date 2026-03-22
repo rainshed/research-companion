@@ -1,14 +1,16 @@
 {
-  "version": 1,
-  "marketplaceId": "rainshed-research-companion",
+  "name": "rainshed-research-companion",
+  "owner": {
+    "name": "Yupeng Wang"
+  },
   "plugins": [
     {
       "name": "research-companion",
       "description": "A persistent research thinking partner for academic/scientific projects. Maintains layered memory across sessions and collaboratively explores research directions.",
       "version": "1.0.0",
       "source": {
-        "type": "git",
-        "url": "https://github.com/rainshed/research-companion"
+        "source": "github",
+        "repo": "rainshed/research-companion"
       }
     }
   ]
