@@ -1,6 +1,6 @@
 # Research Companion
 
-A Claude Code skill that acts as a persistent research thinking partner for academic/scientific projects.
+A Claude Code plugin that acts as a persistent research thinking partner for academic/scientific projects.
 
 ## Features
 
@@ -13,21 +13,47 @@ A Claude Code skill that acts as a persistent research thinking partner for acad
 ## Installation
 
 ```bash
-# From your project root
-git clone git@github.com:rainshed/research-companion.git /tmp/rc-install
-mkdir -p .claude/skills
-cp /tmp/rc-install/.claude/skills/* .claude/skills/
-cp /tmp/rc-install/.claude/context-monitor.sh .claude/
-cp /tmp/rc-install/.claude/settings.local.json .claude/
-chmod +x .claude/context-monitor.sh
-rm -rf /tmp/rc-install
+/plugin install research-companion
 ```
 
-The context monitor uses [cozempic](https://github.com/eastlondoner/cozempic). Install with `npm install -g cozempic` (optional).
+Or install directly from the repository:
+
+```bash
+/plugin install github:rainshed/research-companion
+```
+
+### Optional: Context Monitor
+
+The context window monitor hook uses [cozempic](https://github.com/eastlondoner/cozempic) to track context usage and warn you before running out of space. Install it with:
+
+```bash
+npm install -g cozempic
+```
+
+The plugin works without cozempic — the context monitor will simply be inactive.
 
 ## Usage
 
 Say `科研伙伴`, `research companion`, or `研究搭档` in Claude Code to activate.
+
+On first use, the companion will ask you to give it a name. After that, you can also activate it by saying that name.
+
+## Plugin Structure
+
+```
+research-companion/
+├── .claude-plugin/
+│   └── plugin.json          # Plugin manifest
+├── skills/
+│   └── research-companion/
+│       ├── SKILL.md          # Main skill definition
+│       └── memory-templates.md  # Memory file format templates
+├── hooks/
+│   └── hooks.json           # Context monitor hook config
+├── scripts/
+│   └── context-monitor.sh   # Context window usage monitor
+└── README.md
+```
 
 ## License
 
