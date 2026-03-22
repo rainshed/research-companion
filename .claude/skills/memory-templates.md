@@ -64,6 +64,7 @@ created: [YYYY-MM-DD]
 - last_session: YYYY-MM-DD
 - last_cleanup: YYYY-MM-DD
 - next_cleanup_at: [session count threshold for L3/Topic Index cleanup, typically current + 10]
+- next_veto_review_at: [session count threshold for vetoed ideas review, typically current + 20]
 
 ## L2 Recall Tracker
 | session_file | recall_count | last_recalled | one_line_summary |

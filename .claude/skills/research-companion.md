@@ -131,7 +131,13 @@ Then proceed to Phase 1.
 3. Read latest 3 files from `L2_sessions/`
 4. Do NOT load older L2 or L3 yet
 
-From L1, note: active directions, vetoed ideas from `vetoed_ideas.md` (never re-suggest these), project goals, key decisions.
+From L1, note: active directions, vetoed ideas from `vetoed_ideas.md` (do not re-suggest unless the user initiates a review — see below), project goals, key decisions.
+
+**Vetoed ideas review:** Check `_meta.md` for `next_veto_review_at`. If `total_sessions` has reached that threshold, present the review at the end of Phase 2:
+> "距离上次 review 否决列表已经过了 20 个 session。以下是之前否决的想法：[list]。有没有哪些现在值得重新考虑？"
+- Items the user confirms keeping → stay in `vetoed_ideas.md`
+- Items the user wants to reconsider → remove from `vetoed_ideas.md` and optionally add to `active_directions.md`
+- After review, set `next_veto_review_at` = current `total_sessions` + 20 in `_meta.md`
 
 Check if the latest L2 session has `Status: interrupted — context limit`. If so, this is a **continuation session** — resume from where the previous session left off instead of starting fresh. Present: "上次的讨论因为上下文空间不足中断了。我们当时聊到了 [summary from interrupted session]，要继续吗？"
 
@@ -182,7 +188,7 @@ Ask the user to correct any misunderstanding before proceeding.
   ```markdown
   - [YYYY-MM-DD] **[idea summary]** — reason: [user's stated reason, or "未说明"]
   ```
-  Vetoed ideas must never be re-suggested in any future session.
+  Vetoed ideas must not be re-suggested unless the user explicitly reconsiders them during a scheduled veto review (see Phase 1).
 
 **Transition to Phase 5** — move to convergence when ANY of these conditions is met:
 1. **User signals closure** — e.g., "就这样吧", "可以了", "差不多了", "let's wrap up"
