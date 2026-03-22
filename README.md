@@ -12,14 +12,16 @@ A Claude Code plugin that acts as a persistent research thinking partner for aca
 
 ## Installation
 
+**Step 1:** Add the marketplace:
+
 ```bash
-/plugin install research-companion
+/plugin marketplace add rainshed/research-companion
 ```
 
-Or install directly from the repository:
+**Step 2:** Install the plugin:
 
 ```bash
-/plugin install github:rainshed/research-companion
+/plugin install research-companion@rainshed-research-companion
 ```
 
 ### Optional: Context Monitor
@@ -43,7 +45,8 @@ On first use, the companion will ask you to give it a name. After that, you can 
 ```
 research-companion/
 ├── .claude-plugin/
-│   └── plugin.json          # Plugin manifest
+│   ├── plugin.json          # Plugin manifest
+│   └── marketplace.json     # Marketplace catalog
 ├── skills/
 │   └── research-companion/
 │       ├── SKILL.md          # Main skill definition
