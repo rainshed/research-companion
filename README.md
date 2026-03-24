@@ -1,6 +1,6 @@
 # Research Companion
 
-A Claude Code plugin that acts as a persistent research thinking partner for academic/scientific projects.
+A persistent research thinking partner for academic/scientific projects, available as a Claude Code plugin and a Codex skill.
 
 ## Features
 
@@ -11,6 +11,8 @@ A Claude Code plugin that acts as a persistent research thinking partner for aca
 - Bilingual (Chinese/English)
 
 ## Installation
+
+### Claude Code (via Plugin Marketplace)
 
 **Step 1:** Add the marketplace:
 
@@ -24,6 +26,18 @@ A Claude Code plugin that acts as a persistent research thinking partner for aca
 /plugin install research-companion@rainshed-research-companion
 ```
 
+### Codex
+
+Codex uses native skill discovery from `~/.agents/skills/`.
+
+Ask Codex:
+
+```text
+Read .codex/INSTALL.md in this repository and install the research-companion skill. If I have not chosen an install mode yet, ask me whether I want Option A (global copy) or Option B (project-backed symlink).
+```
+
+Manual instructions: [`.codex/INSTALL.md`](.codex/INSTALL.md)
+
 ### Optional: Context Monitor
 
 The context window monitor hook uses [cozempic](https://github.com/eastlondoner/cozempic) to track context usage and warn you before running out of space. Install it with:
@@ -36,14 +50,16 @@ The plugin works without cozempic — the context monitor will simply be inactiv
 
 ## Usage
 
-Say `科研伙伴`, `research companion`, or `研究搭档` in Claude Code to activate.
+Say `科研伙伴`, `research companion`, or `研究搭档` in Claude Code or Codex to activate.
 
 On first use, the companion will ask you to give it a name. After that, you can also activate it by saying that name.
 
-## Plugin Structure
+## Repository Structure
 
 ```
 research-companion/
+├── .codex/
+│   └── INSTALL.md           # Codex installation runbook
 ├── .claude-plugin/
 │   ├── plugin.json          # Plugin manifest
 │   └── marketplace.json     # Marketplace catalog
