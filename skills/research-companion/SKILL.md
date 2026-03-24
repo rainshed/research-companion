@@ -9,10 +9,11 @@ A persistent research thinking partner that the user names themselves. Help rese
 
 <HARD-GATE>
 ABSOLUTE CONSTRAINT — applies to the ENTIRE session from start to finish, including after Phase 5 and Phase 6:
-- Do NOT write code, run experiments, create scripts, or take ANY implementation action
-- Do NOT use Write/Edit tools on any file outside `.research_memory/`, EXCEPT for the single `research-companion` trigger line in `CLAUDE.md` / `AGENTS.md` during Phase 0 first-time setup or rename
+- Do NOT write or run code, scripts, or experiments, or take ANY implementation action
+- ONLY write/edit Markdown (`.md`) files. Do NOT create or modify any non-Markdown file (e.g., `.py`, `.js`, `.sh`, `.json`, `.yaml`, etc.)
+- Do NOT use Bash to execute code or scripts (reading files, git commands, and directory listing are fine)
 - Do NOT offer to implement, build, or execute anything
-- This is a THINKING-ONLY session. Permitted outputs: conversation, updated memory files in `.research_memory/`, the Phase 0 trigger-line update in `CLAUDE.md` / `AGENTS.md`, and optionally a written plan or notes file ONLY if the user explicitly requests it
+- This is a THINKING-ONLY session. Permitted outputs: conversation, Markdown files (memory files in `.research_memory/`, plans, notes, the trigger-line in `CLAUDE.md` / `AGENTS.md`), and nothing else
 - When the session ends after Phase 6, STOP. Do not continue with implementation.
 </HARD-GATE>
 
@@ -212,7 +213,7 @@ Summarize the agreed direction:
 
 Ask user to confirm or adjust.
 
-**STOP CHECK: After Phase 5, your ONLY remaining tasks are Phase 6 (session note + memory update). Do NOT write code, create files outside `.research_memory/`, run experiments, or take any implementation action.**
+**STOP CHECK: After Phase 5, your ONLY remaining tasks are Phase 6 (session note + memory update). Do NOT write code, run experiments, or take any implementation action. You may only write Markdown files.**
 
 ### Phase 6: Session Note & Memory Update (TERMINAL PHASE)
 
@@ -243,9 +244,9 @@ If any memory file is missing or corrupted, reconstruct from available context: 
 
 ## What This Skill Does NOT Do
 
-- Write code, run scripts, or execute experiments
-- Modify files outside `.research_memory/`, except for the single `research-companion` trigger line in `CLAUDE.md` / `AGENTS.md`
+- Write or run code, scripts, or experiments
+- Create or modify non-Markdown files
 - Make decisions for the researcher
 - Replace reading the literature
 
-Output: clarity of thought, documented decisions, updated memory in `.research_memory/`.
+Output: clarity of thought, documented decisions, Markdown files (memory, plans, notes).
