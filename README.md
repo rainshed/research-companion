@@ -28,15 +28,15 @@ A persistent research thinking partner for academic/scientific projects, availab
 
 ### Codex
 
-Codex uses native skill discovery from `~/.agents/skills/`.
+Codex uses native skill discovery from `$CODEX_HOME/skills/` (default: `~/.codex/skills/`).
 
 Ask Codex:
 
 ```text
-Read .codex/INSTALL.md in this repository and install the research-companion skill. If I have not chosen an install mode yet, ask me whether I want Option A (global copy) or Option B (project-backed symlink).
+Install the `research-companion` skill from https://github.com/rainshed/research-companion/tree/main/skills/research-companion using the built-in GitHub skill installer, then remind me to restart Codex.
 ```
 
-Manual instructions: [`.codex/INSTALL.md`](.codex/INSTALL.md)
+Manual instructions: [`.codex/INSTALL.md`](.codex/INSTALL.md) or install directly from [`skills/research-companion`](https://github.com/rainshed/research-companion/tree/main/skills/research-companion)
 
 ### Optional: Context Monitor
 
