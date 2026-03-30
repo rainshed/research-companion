@@ -2,8 +2,8 @@
 # Context window monitor for research-companion skill
 # Runs on UserPromptSubmit to check context usage and warn when running low
 
-WARN_THRESHOLD=60
-CRITICAL_THRESHOLD=80
+WARN_THRESHOLD=50
+CRITICAL_THRESHOLD=70
 
 # Get context usage from cozempic
 OUTPUT=$(cozempic current 2>/dev/null)

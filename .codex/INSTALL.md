@@ -7,13 +7,13 @@ This document is written so a Codex agent can read it and perform the installati
 When the user asks Codex to install this skill, prefer Codex's built-in GitHub skill installer and use this source URL:
 
 ```text
-https://github.com/rainshed/research-companion/tree/main/skills/research-companion
+https://github.com/rainshed/research-companion/tree/main/codex-skills/research-companion
 ```
 
 If the user says:
 
 ```text
-Install the `research-companion` skill from https://github.com/rainshed/research-companion/tree/main/skills/research-companion using the built-in GitHub skill installer, then remind me to restart Codex.
+Install the `research-companion` skill from https://github.com/rainshed/research-companion/tree/main/codex-skills/research-companion using the built-in GitHub skill installer, then remind me to restart Codex.
 ```
 
 that should be treated as the standard installation request for this skill.
@@ -60,7 +60,7 @@ Choose this if the user wants a standalone personal installation that does not d
 
 ```bash
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-cp -R skills/research-companion "${CODEX_HOME:-$HOME/.codex}/skills/"
+cp -R codex-skills/research-companion "${CODEX_HOME:-$HOME/.codex}/skills/"
 ```
 
 ### Option B: Project-Backed Symlink
@@ -69,7 +69,7 @@ Choose this if the user wants this repository to remain the source of truth, so 
 
 ```bash
 mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
-ln -s "$(pwd)/skills/research-companion" "${CODEX_HOME:-$HOME/.codex}/skills/research-companion"
+ln -s "$(pwd)/codex-skills/research-companion" "${CODEX_HOME:-$HOME/.codex}/skills/research-companion"
 ```
 
 For a symlink install, verify the target too:

@@ -33,10 +33,10 @@ Codex uses native skill discovery from `$CODEX_HOME/skills/` (default: `~/.codex
 Ask Codex:
 
 ```text
-Install the `research-companion` skill from https://github.com/rainshed/research-companion/tree/main/skills/research-companion using the built-in GitHub skill installer, then remind me to restart Codex.
+Install the `research-companion` skill from https://github.com/rainshed/research-companion/tree/main/codex-skills/research-companion using the built-in GitHub skill installer, then remind me to restart Codex.
 ```
 
-Manual instructions: [`.codex/INSTALL.md`](.codex/INSTALL.md) or install directly from [`skills/research-companion`](https://github.com/rainshed/research-companion/tree/main/skills/research-companion)
+Manual instructions: [`.codex/INSTALL.md`](.codex/INSTALL.md) or install directly from [`codex-skills/research-companion`](https://github.com/rainshed/research-companion/tree/main/codex-skills/research-companion)
 
 ### Optional: Context Monitor
 
@@ -65,8 +65,12 @@ research-companion/
 │   └── marketplace.json     # Marketplace catalog
 ├── skills/
 │   └── research-companion/
-│       ├── SKILL.md          # Main skill definition
-│       └── memory-templates.md  # Memory file format templates
+│       ├── SKILL.md          # Claude Code skill (writes CLAUDE.md)
+│       └── memory-templates.md
+├── codex-skills/
+│   └── research-companion/
+│       ├── SKILL.md          # Codex skill (writes AGENTS.md)
+│       └── memory-templates.md
 ├── hooks/
 │   └── hooks.json           # Context monitor hook config
 ├── scripts/

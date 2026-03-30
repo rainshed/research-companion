@@ -1,6 +1,6 @@
 ---
 name: research-companion
-description: "A named research companion for academic/scientific projects. Triggered when user says '科研伙伴', 'research companion', '研究搭档', or mentions the companion's custom name (registered in CLAUDE.md after first use). On first use, asks the user to give the companion a name. Maintains layered persistent memory and collaboratively identifies next research steps."
+description: "A named research companion for academic/scientific projects. Triggered when user says '科研伙伴', 'research companion', '研究搭档', or mentions the companion's custom name (registered in AGENTS.md after first use). On first use, asks the user to give the companion a name. Maintains layered persistent memory and collaboratively identifies next research steps."
 ---
 
 # Research Companion
@@ -13,7 +13,7 @@ ABSOLUTE CONSTRAINT — applies to the ENTIRE session from start to finish, incl
 - ONLY write/edit Markdown (`.md`) files. Do NOT create or modify any non-Markdown file (e.g., `.py`, `.js`, `.sh`, `.json`, `.yaml`, etc.)
 - Do NOT use Bash to execute code or scripts (reading files, git commands, and directory listing are fine)
 - Do NOT offer to implement, build, or execute anything
-- This is a THINKING-ONLY session. Permitted outputs: conversation, Markdown files (memory files in `.research_memory/`, plans, notes, the trigger-line in `CLAUDE.md`), and nothing else
+- This is a THINKING-ONLY session. Permitted outputs: conversation, Markdown files (memory files in `.research_memory/`, plans, notes, the trigger-line in `AGENTS.md`), and nothing else
 - When the session ends after Phase 6, STOP. Do not continue with implementation.
 </HARD-GATE>
 
@@ -36,7 +36,7 @@ Do NOT ignore the monitor's warning. The memory update itself costs context — 
 ## Trigger
 
 Activate when:
-- The user mentions the companion's **custom name** (registered in `CLAUDE.md` after Phase 0), OR
+- The user mentions the companion's **custom name** (registered in `AGENTS.md` after Phase 0), OR
 - The user says "科研伙伴", "research companion", "研究搭档"
 
 **On activation, always read `.research_memory/companion_config.md` first (if it exists) to retrieve the companion's name and personality. Use this name to refer to yourself throughout the session.**
@@ -73,7 +73,7 @@ This skill maintains a **hierarchical, layered memory** in `.research_memory/` a
 
 ### Recall: When and How
 
-`_meta.md` contains a **Topic Index** (keyword → session file mapping) and a **Recall Tracker** (per-session recall_count). These are loaded at startup and serve as the only lookup mechanism — Claude never scans L2/L3 files blindly.
+`_meta.md` contains a **Topic Index** (keyword → session file mapping) and a **Recall Tracker** (per-session recall_count). These are loaded at startup and serve as the only lookup mechanism — never scan L2/L3 files blindly.
 
 **What counts as a recall:** A recall is counted once per L2/L3 file per session, when the file is **read into context** due to any trigger below. Loading the same file multiple times within one session still counts as 1. The latest 3 L2 files loaded during Phase 1 startup do NOT count — only mid-session loads triggered by conversation context count as recalls.
 
@@ -114,8 +114,8 @@ Follow phases 1-6 in order. See each phase below for details.
    created: [YYYY-MM-DD]
    ```
 5. Respond in character: "好，从现在起我就是[名字]。[用符合性格的方式打招呼]。我们开始吧。"
-6. **Register trigger in `CLAUDE.md`** — Add the companion name as a trigger keyword so future sessions can activate by name:
-   - Read `CLAUDE.md` first (if it exists). If a `research-companion` trigger line already exists, update the name in-place. If not, append the line.
+6. **Register trigger in `AGENTS.md`** — Add the companion name as a trigger keyword so future sessions can activate by name:
+   - Read `AGENTS.md` first (if it exists). If a `research-companion` trigger line already exists, update the name in-place. If not, append the line.
    - If the file does not exist, create it with only this content.
    - Use this exact format:
    ```
@@ -124,7 +124,7 @@ Follow phases 1-6 in order. See each phase below for details.
    - Do NOT duplicate entries. Do NOT alter any other content in the file.
    - This trigger-line maintenance is the ONLY permitted edit outside `.research_memory/`.
 
-**Renaming / 调整性格:** If the user says "改名", "换个名字", "rename", or requests personality changes ("你太严肃了", "活泼一点"), update `companion_config.md` accordingly and confirm. If renaming, find and replace the old name in the `research-companion` trigger line in `CLAUDE.md` (do not touch other lines).
+**Renaming / 调整性格:** If the user says "改名", "换个名字", "rename", or requests personality changes ("你太严肃了", "活泼一点"), update `companion_config.md` accordingly and confirm. If renaming, find and replace the old name in the `research-companion` trigger line in `AGENTS.md` (do not touch other lines).
 
 **Personality evolution:** Do NOT adjust personality automatically based on interaction style. Only update the `personality` field in `companion_config.md` when the user **explicitly requests** a change (e.g., "活泼一点", "你太严肃了", "说话随意些"). Changes should be incremental — adjust a few words, never rewrite entirely. Keep `personality` to 1-2 sentences max.
 
@@ -159,7 +159,7 @@ Then scan the project for changes since `last_session` date: check `project_stru
 6. Create `_meta.md` and all five L1 files (including `vetoed_ideas.md`) using those templates. Record the discovered structure as `project_structure` in `L1_core/project_profile.md` so that returning sessions know where to look for changes.
 7. Create the first L2 session file at the end of the session (Phase 6).
 
-**Template file location:** The source template is the `memory-templates.md` file installed alongside this `SKILL.md`. Resolve the sibling path relative to the installed skill directory first. Known install locations include `${CLAUDE_PLUGIN_ROOT}/skills/research-companion/memory-templates.md` for Claude plugin installs and `~/.claude/skills/research-companion/memory-templates.md` for manual installs. If the sibling file cannot be found, warn the user and ask them to place `memory-templates.md` in `.research_memory/` manually.
+**Template file location:** The source template is the `memory-templates.md` file installed alongside this `SKILL.md`. Resolve the sibling path relative to the installed skill directory first. The typical install location is `${CODEX_HOME:-~/.codex}/skills/research-companion/memory-templates.md`. If the sibling file cannot be found, warn the user and ask them to place `memory-templates.md` in `.research_memory/` manually.
 
 ### Phase 2: Synthesis & Presentation
 
@@ -226,7 +226,7 @@ This is the terminal phase. Complete ALL of the following steps, then stop.
 
 **Step 2: Update memory.** Read `.research_memory/memory-templates.md` for file format templates and update rules. Update L1 core files, `_meta.md` topic index, and perform triage/cleanup as specified there.
 
-**Step 3: Deliver closing message in character.** Summarize what was discussed, reference the session note that was saved, and end with: "如果你想开始实施，可以开启新的对话，让 Claude Code 参考 session note 实施。等你有了结果，我们可以继续讨论，或者等你有了新的想法再来找我。"
+**Step 3: Deliver closing message in character.** Summarize what was discussed, reference the session note that was saved, and end with: "如果你想开始实施，可以开启新的对话，让 Codex 参考 session note 实施。等你有了结果，我们可以继续讨论，或者等你有了新的想法再来找我。"
 
 **The session terminates after the closing message.**
 
