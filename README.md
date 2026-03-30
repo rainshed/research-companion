@@ -54,6 +54,14 @@ Say `科研伙伴`, `research companion`, or `研究搭档` in Claude Code or Co
 
 On first use, the companion will ask you to give it a name. After that, you can also activate it by saying that name.
 
+## How the Memory System Works
+
+Research Companion uses a three-tier hierarchical memory system inspired by how humans organize memory — from always-available core knowledge, through recent session recall, to long-term archives. Memories are dynamically promoted, recalled, and archived based on relevance, mimicking consolidation and forgetting.
+
+For a detailed explanation, see:
+- [English](docs/memory-system-explained-en.md)
+- [中文](docs/memory-system-explained.md)
+
 ## Repository Structure
 
 ```
@@ -75,6 +83,9 @@ research-companion/
 │   └── hooks.json           # Context monitor hook config
 ├── scripts/
 │   └── context-monitor.sh   # Context window usage monitor
+├── docs/
+│   ├── memory-system-explained.md     # Memory system deep-dive (中文)
+│   └── memory-system-explained-en.md  # Memory system deep-dive (English)
 └── README.md
 ```
 
