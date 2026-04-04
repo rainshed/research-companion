@@ -1,6 +1,6 @@
 {
   "name": "research-companion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A persistent research thinking partner for academic/scientific projects. Maintains layered memory across sessions and collaboratively explores research directions.",
   "author": {
     "name": "Yupeng Wang"
@@ -8,6 +8,5 @@
   "repository": "https://github.com/rainshed/research-companion",
   "license": "MIT",
   "keywords": ["research", "academic", "science", "thinking-partner", "memory"],
-  "skills": "./skills/",
-  "hooks": "./hooks/hooks.json"
+  "skills": "./skills/"
 }

@@ -7,7 +7,7 @@
     {
       "name": "research-companion",
       "description": "A persistent research thinking partner for academic/scientific projects. Maintains layered memory across sessions and collaboratively explores research directions.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "source": {
         "source": "github",
         "repo": "rainshed/research-companion"
