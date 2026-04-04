@@ -26,6 +26,12 @@ A persistent research thinking partner for academic/scientific projects, availab
 /plugin install research-companion@rainshed-research-companion
 ```
 
+### Update
+
+```bash
+/plugin update research-companion@rainshed-research-companion
+```
+
 ### Codex
 
 Codex uses native skill discovery from `$CODEX_HOME/skills/` (default: `~/.codex/skills/`).
@@ -37,6 +43,16 @@ Install the `research-companion` skill from https://github.com/rainshed/research
 ```
 
 Manual instructions: [`.codex/INSTALL.md`](.codex/INSTALL.md) or install directly from [`codex-skills/research-companion`](https://github.com/rainshed/research-companion/tree/main/codex-skills/research-companion)
+
+#### Update (Codex)
+
+If installed via symlink (Option B in INSTALL.md), updates are automatic via `git pull`. For a copied install (Option A), re-run:
+
+```bash
+cp -R codex-skills/research-companion "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
+
+Then restart Codex.
 
 ### Optional: Context Monitor
 
