@@ -28,12 +28,6 @@ A persistent research thinking partner for academic/scientific projects, availab
 /plugin install research-companion@rainshed-research-companion
 ```
 
-### Update
-
-```bash
-/plugin update research-companion@rainshed-research-companion
-```
-
 ### Codex
 
 Codex uses native skill discovery from `$CODEX_HOME/skills/` (default: `~/.codex/skills/`).
@@ -46,16 +40,6 @@ Install the `research-companion` skill from https://github.com/rainshed/research
 
 Manual instructions: [`.codex/INSTALL.md`](.codex/INSTALL.md) or install directly from [`codex-skills/research-companion`](https://github.com/rainshed/research-companion/tree/main/codex-skills/research-companion)
 
-#### Update (Codex)
-
-If installed via symlink (Option B in INSTALL.md), updates are automatic via `git pull`. For a copied install (Option A), re-run:
-
-```bash
-cp -R codex-skills/research-companion "${CODEX_HOME:-$HOME/.codex}/skills/"
-```
-
-Then restart Codex.
-
 ### Optional: Context Monitor
 
 The context window monitor hook uses [cozempic](https://github.com/eastlondoner/cozempic) to track context usage and warn you before running out of space. Install it with:
@@ -65,6 +49,30 @@ npm install -g cozempic
 ```
 
 The plugin works without cozempic — the context monitor will simply be inactive.
+
+## Update
+
+### Claude Code
+
+```bash
+/plugin update research-companion@rainshed-research-companion
+```
+
+### Codex
+
+If installed via symlink (Option B in INSTALL.md), pull the latest changes:
+
+```bash
+cd /path/to/research-companion && git pull
+```
+
+For a copied install (Option A), re-run:
+
+```bash
+cp -R codex-skills/research-companion "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
+
+Then restart Codex.
 
 ## Usage
 
