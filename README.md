@@ -2,6 +2,8 @@
 
 A persistent research thinking partner for academic/scientific projects, available as a Claude Code plugin and a Codex skill.
 
+> **Looking for the English-only version?** Switch to the [`en`](https://github.com/rainshed/research-companion/tree/en) branch.
+
 ## Features
 
 - Named companion with custom personality
